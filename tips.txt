@@ -1,0 +1,10 @@
+AnswerReportActivity ：作业报告
+AnswerCardFragment：答题报告
+ResolutionAnswerViewActivity：答题解析
+SubjectiveQuestionFragment  ：拍照 上传答案
+
+setUserVisibleHint调用在onCreate之前
+关于Fragment的预加载机制：假设现在有 1 2 3 个Fragment（默认预加载1个）
+刚进入时：
+会先调用1的setUserVisibleHint（false）方法，然后调用2的setUserVisibleHint（false），然后调用1的setUserVisibleHint（true）；
+当滑动到2时：会先调用1的setUserVisibleHint（false），然后调用3的setUserVisibleHint（false）,然后调用2的setUserVisibleHint（true）;

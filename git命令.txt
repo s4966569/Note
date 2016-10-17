@@ -1,0 +1,32 @@
+﻿一般流程：更新主仓库：git fetch upstream
+合并远程仓库代码：git rebase upstream/master
+然后提交自己本地的代码到远程仓库git push origin master
+到网页上面创建 pull request
+
+控制git log 的输出格式：
+vim ~/.gitconfig 在文件中加入：
+[format]
+        	pretty=format:%Cred%h  %<(12,trunc)%Cgreen%an%x08%x08  %<(13,trunc)%Cred%cr%x08%x08  %Cgreen%s
+
+%<(N, trunc) 下一个单元的输出宽度限制为N列, 左对齐
+
+%<|(N, trunc) 下一个单元输出至全局第N列, 左对齐
+
+%>, %>|, %>>, %>< 类似, 分别为 右对齐, 右对齐, 右对齐(如果左边有多余空格则复用), 居中对齐
+
+其中%x08后面的空格也会计入到前面的12中去。
+%x08是为了删除..(显示不全的内容会用..代替)。
+
+Git命令：
+1.撤销当前未保存的所有文件：git checkout. 
+  单个文件：git checkout fileName
+2.回到上个提交：git reset --hard HEAD^ 回到上一个提交
+3.回到某个提交：git reset --hard commitNum  回到某个提交
+
+4.比较更改：git diff
+  比较最后一次提交跟上次提交的不同 ：git diff HEAD^ HEAD (可换成7位短commit号，比较两次commit之间的差异)
+5.合并两次提交信息：git commit --amend
+
+6.分支的管理：
+查看已经合并到当前分支的分支：git branch --merged
+查看未合并到当前分支的分支：git branch --no-merged
