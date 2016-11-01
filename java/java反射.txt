@@ -1,0 +1,39 @@
+JAVA反射机制：在运行状态中，对于任意一个类，都能知道这个类的所有属性和方法；
+对于任意一个对象，都能够调用它的任意一个方法和属性；
+这种动态获取的信息以及动态调用对象的方法的功能成为java的反射机制。
+
+类Class（非关键字class）定义了java字节码（java.class）文件对象，其中包含了该类的所有内容：
+包括类名称、字段、构造函数、一般函数。
+
+获取字节码对象的3中方式：
+1.Object类中的getClass（）方法。
+想要用这种方式，必须要明确具体的类，并创建对象。
+2.任何数据类型都具备一个静态的属性.class来获取其对应的字节码文件对象。
+相对简单，但是还是要明确类的名称。
+3.通过Class类中的forName()方法去获取，此方法需要传入完整的包名，比如com.example.Person。
+此方法扩展性比较强，例如可以把类的字符串名称写入配置文件中。
+
+Class clazz = Class.forName(com.example.Person);下面的例子，以此对象为例。
+
+new对象实例：
+以前new对象的时候：先根据被new的类的名称寻找该类的字节码文件，并加载进内存，然后创建该字节码文件（Person.class）对象（Class对象），再通过Class对象创建该字节码文件对应的类对象（Person对象）。
+现在可以：拿到了Class对象，然后可以通过Class对象的newInstance（）方法拿到不带参数的默认构造函数，通过getConstructor（）方法可以拿到带参数的构造函数。
+
+拿到对象的字段：
+Field field = clazz.getField("age")  只获取公有的字段
+field = clazz.getDeclaredField("age") 获取所有的字段，包括私有的、保护的等。
+
+//对私有的字段访问取消权限检查
+field.setAccessible(true);  这样的话，私有的字段也能访问，否则访问会报非法权限异常。
+Object obj = clazz.newInstance();
+Object obj1 = field.get(obj)   这样就获取到了字段的值。set方法同理。
+
+
+拿到方法：
+clazz.getMethods();  //返回的都是公有的方法，包括父类中的方法。
+clazz.getDeclaredMethods   //返回本类中的方法，包括私有方法，不包括父类中的方法。
+调用方法  method.invoke(Object obj,Object... args);
+
+
+
+

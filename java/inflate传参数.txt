@@ -1,0 +1,5 @@
+inflate 传 三个参数  inflate(layout,parent,false) 跟 inflate(layout,null)的区别
+
+传 两个参数  item的外层布局是不起作用的  
+
+三个参数：false 返回的是item的view  传true 返回的是 加上item view之后的parent view

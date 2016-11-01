@@ -1,0 +1,22 @@
+复制数据库文件的步骤：
+1.adb shell
+
+2.su 获取root权限
+
+3.cd data/data/com.ares.app301/databases 进入数据库存储目录
+
+4.chmod 644 301.db 修改系统文件的权限
+
+5.exit 退出到windows命令行
+
+6.adb pull data/data/com.ares.app301/databases/301.db d:\   在windows命令行下执行(不能在adb shell下面执行)
+
+Get busy living or get busy dying
+
+
+adb pull /storage/emulated/legacy/IserverDownload/deng.mp3 d:/
+
+adb pull /storage/emulated/legacy/deng.mp3 d:/
+
+
+/storage/sdcard0/IserverDownload/deng.mp3

@@ -1,0 +1,22 @@
+泛型：  ArrayList<String>  尖括号里面的就是泛型。
+        ArrayList<E>中的E表示引用数据类型。
+泛型技术是给编译器使用的技术，用于编译时期，确保了类型的安全。
+运行时，会将泛型去掉，生成的class文件中是不带泛型的，这个称为泛型的擦除。
+为什么擦除呢？因为为了兼容运行时的类加载器。 
+擦除补偿；取出来的时候自动类型转换。
+     jdk1.5出现的安全机制。
+	 好处；
+	      1.将运行时期的问题ClassCastException赚到了编译时期。
+		  2.避免了强制转换的麻烦。
+		  
+泛型类：在jdk1.5之后，使用泛型来接受类中要操作的引用数据类型。这个类就叫做泛型类。
+什么时候用？当类中操作的引用数据类型不确定的时候，就使用泛型类。
+泛型接口：同上。
+
+泛型方法：public static <T> void show(Collection<T> coll),<T>在返回值类型的前面，在方法修饰符的后面。
+等同于 public static void show(Collection<?> coll)
+
+泛型的通配符：？ 未知类型
+泛型的上限：Collection<? extends Person>  包括Person跟Person的子类。
+泛型下限：Collection<? super Person>  包括Person跟Person的父类。
+

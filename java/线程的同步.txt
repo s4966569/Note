@@ -1,0 +1,10 @@
+线程的同步：
+1.同步代码块：synchronized(obj){};
+2.同步函数：public synchronized void add(int num);同步函数用的锁对象是当前类本身，也就是this。
+
+两种方法的区别：同步函数的锁是固定的this，同步代码块的锁可以是任意的对象，使用的时候建议使用同步代码块。
+
+静态同步函数：public static synchronized void add(int num);静态同步函数的锁对象不是this，因为静态方法没有this，还没有new出来对象。静态同步函数用的锁是字节码文件对象，即this.getClass();也可以用Object.class;
+
+死锁：
+     常见情景之一：同步嵌套

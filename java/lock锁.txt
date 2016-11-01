@@ -1,0 +1,63 @@
+ 对于同步代码块来讲，对于锁的操作是隐式的。就是不知道是什么时候获取和释放的。
+ 
+Lock接口：出现替代了同步代码块或者同步函数。将同步的隐式锁操作变成了显式锁操作。同时更为灵活，可以一个锁上加上多组监视器。
+方法：lock()：获取锁，如果没获取到会一直等待；
+tryLock()方法是有返回值的，它表示用来尝试获取锁，如果获取成功，则返回true，如果获取失败（即锁已被其他线程获取），则返回false，也就说这个方法无论如何都会立即返回。在拿不到锁时不会一直在那等待。
+tryLock(long time, TimeUnit unit)方法和tryLock()方法是类似的，只不过加了一个等待时间。
+unlock():释放锁，通常需要定义在finally代码块中，因为如果发生异常而没有释放锁，可能会导致死锁。
+所有已知实现类：
+ReentrantLock, ReentrantReadWriteLock.ReadLock, ReentrantReadWriteLock.WriteLock，第一个是可重入锁，后面两个主要是读写锁，用于读写操作。
+
+ReentrantLock:可重入的互斥锁，所谓互斥就是同时只允许一个线程持有。
+ReadWriteLock：是一个接口，内置两个Lock，一个是读的Lock，一个是写的Lock。ReadWriteLock提供的方法有： 
+     * readLock(): 返回一个读的lock  
+     * writeLock(): 返回一个写的lock, 此lock是互斥的。
+     * 多个线程可同时得到读的Lock，但只有一个线程能得到写的Lock， 
+     * 而且写的Lock被锁定后，任何线程都不能得到Lock。	 
+     * ReadWriteLockTest很适合处理类似文件的读写操作。 
+     * 读的时候可以同时读，但不能写；写的时候既不能同时写也不能读。
+
+Condition接口：封装了Object中的wait,notify,notifyAll方法，变成了Condition监视器对象，可以和任意锁进行组合。
+方法：await(),signal(),signalAll()，分别对应Object中的wait,notify,notifyAll方法。
+获取一个锁对象的监视器实例：
+Condition con = lock.newCondition();
+一个lock对象上面可以挂多组Conditon对象。
+ 
+wait()方法会释放锁。 
+
+interrupt():可以将线程从冻结状态强制恢复到运行状态中来，让线程具备cpu的执行资格。但是会抛出InterruptedException异常。只有使用lock锁的线程才能够响应中断，使用syncronized的线程不能够响应中断。
+
+守护线程：setDaemon(true)，也可以叫做后台线程，如果所有的前台线程都结束了，那么后台线程无论是否处于冻结状态。该 方法必须在启动线程前调用。
+
+join():比如主线程中有个线程t,当调用t.join()，主线程会冻结，并等待t执行完再执行。
+
+几个概念：
+
+1.可重入锁
+　　如果锁具备可重入性，则称作为可重入锁。像synchronized和ReentrantLock都是可重入锁。比如当syncronzied代码块或同步函数中又调用了另外一个同步代码块或者同步函数且它们使用的是同一个锁对象 ，那么当获取到第一个同步代码块或者函数的锁之后，在执行第二个同步代码块或者锁的时候，不会再去重复申请同步锁。
+
+2.可中断锁
+　　就是可以相应中断的锁，通过Thread.interrupt()方法。synchronized就不是可中断锁，而Lock是可中断锁。
+
+3.公平锁
+
+　　公平锁即尽量以请求锁的顺序来获取锁。比如同时有多个线程在等待一个锁，当这个锁被释放时，等待时间最久的线程（最先请求的线程）会获得该所，这种就是公平锁。
+
+　　非公平锁即无法保证锁的获取是按照请求锁的顺序进行的。这样就可能导致某个或者一些线程永远获取不到锁。
+
+　　在Java中，synchronized就是非公平锁，它无法保证等待的线程获取锁的顺序。
+
+　　而对于ReentrantLock和ReentrantReadWriteLock，它默认情况下是非公平锁，但是可以设置为公平锁。在ReentrantLock中定义了2个静态内部类，一个是NotFairSync，一个是FairSync，分别用来实现非公平锁和公平锁。例如：ReentrantLock lock = new ReentrantLock(true);
+
+
+Lock和synchronized有以下几点不同：
+
+    1）Lock是一个接口，而synchronized是Java中的关键字，synchronized是内置的语言实现；
+
+　　2）synchronized在发生异常时，会自动释放线程占有的锁，因此不会导致死锁现象发生；而Lock在发生异常时，如果没有主动通过unLock()去释放锁，则很可能造成死锁现象，因此使用Lock时需要在finally块中释放锁；
+
+　　3）Lock可以让等待锁的线程响应中断，而synchronized却不行，使用synchronized时，等待的线程会一直等待下去，不能够响应中断；
+
+　　4）通过Lock可以知道有没有成功获取锁，而synchronized却无法办到。
+
+　　5）Lock可以提高多个线程进行读操作的效率。
