@@ -1,0 +1,34 @@
+1.点击图标最小化
+gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ launcher-minimize-window true
+2.设置启动器在底部
+gsettings set com.canonical.Unity.Launcher launcher-position Bottom
+3.解决gedit中文乱码的问题：
+ gsettings set org.gnome.gedit.preferences.encodings candidate-encodings "['GB18030', 'UTF-8', 'CURRENT','ISO-8859-15', 'UTF-16']"
+4.xiugai grub yindao:
+sudo gedit /etc/default/grub
+sudo update-grub
+
+5.update gfwlist:
+settings->Network->proxy
+sudo pip install genpac
+genpac -p "SOCKS5 127.0.0.1:1080" --gfwlist-proxy="SOCKS5 127.0.0.1:1080" --output="~/shadowsocks/autoproxy.pac" --gfwlist-url="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt"
+
+shadowsocks run in background:
+#或者在后台运行
+ssserver -c /etc/shadowsocks.json -d start
+ssserver -c /etc/shadowsocks.json -d stop
+
+安装chrome:直接下载.deb文件安装。
+sudo dpkg -i google-chrome.deb
+error:
+sudo apt-get install -f
+安装studio：　直接下载解压，然后安装一些依赖库，再运行ｂｉｎ文件夹下面的studio.sh开始配置
+安装virtualBox:直接在官网下载安装文件双击安装
+安装genymotion:在官网下载.bin文件，然后chmod +x filename，然后运行./gneymotion.bin文件直接安装
+安装sougou拼音：直接下载.deb文件安装
+
+安装java:
+$ sudo add-apt-repository ppa:webupd8team/java
+$ sudo apt-get update
+$ sudo apt-get install oracle-java8-installer
+$ sudo apt-get install oracle-java8-set-default
