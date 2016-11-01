@@ -1,3 +1,5 @@
-查看接口或抽象类中的方法实现的类   ：ctrl+alt+b
-查看某个方法的调用路径：ctrl+alt+h
-查看断点处变量的值:ctrl+alt+f8  (win 10 快捷键冲突)
+1.查看接口或抽象类中的方法实现的类   ：ctrl+alt+b
+2.查看某个方法的调用路径：ctrl+alt+h
+3.查看类的继承关系：ctrl+h
+4.计算断点处变量或表达式的值:ctrl+alt+8
+5.打开计算表达式值（Evaluate Express）窗口 alt+f8
