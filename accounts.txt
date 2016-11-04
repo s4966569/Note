@@ -1,5 +1,10 @@
 1.SVN用户名：sunpeng
 密码：$^7*SPeng66
+http://svn.yanxiu.net/mobile/mui/trunk
+sudo apt-get install subversion: 安装svn
+svn help command : 查看命令帮助
+svn checkout(co) path : 检出到当前文件夹
+svn update(up)：更新当前文件夹的所有内容到最新版本
 2.GJJ：
 初始密码：身份证后4位+00
 改成了 082288
