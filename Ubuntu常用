@@ -4,7 +4,7 @@ gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshel
 gsettings set com.canonical.Unity.Launcher launcher-position Bottom
 3.解决gedit中文乱码的问题：
  gsettings set org.gnome.gedit.preferences.encodings candidate-encodings "['GB18030', 'UTF-8', 'CURRENT','ISO-8859-15', 'UTF-16']"
-4.xiugai grub yindao:
+4.修改 grub 引导:
 sudo gedit /etc/default/grub
 sudo update-grub
 
