@@ -1,0 +1,31 @@
+首先要搞清楚几点概念：
+HEAD指针：指向当前所在的commit版本，并不一定是当前分支的最后一个提交。
+分支指针：指向当前分支的最后一个提交。
+默认情况下，HEAD指针是指向当前分支指针的，也就是说HEAD指针指向的是当前分支的最后一个提交。
+HEAD:最后一次提交
+HEAD~:最后一次提交的父提交
+HEAD~2:最后一次提交的父提交的父提交
+HEAD~3,HEAD~4以此类推。
+：：一般需要加commit号的 如果什么都不写，都是默认HEAD
+reset:会移动当前分支指针的指向，因为HEAD指针指向的是当前分支的指针，所以当当前分支的指针移动的时候，HEAD也会跟着移动。
+checkout:移动HEAD指针的指向，当前所在分支的指针并不会移动。这就是reset跟checkout最本质的区别。
+------git reset:移动当前所在分支的指针指向(HEAD指针跟着移动)。
+git reset --soft (HEAD，不加HEAD默认是HEAD|某一个commit号):移动HEAD指针
+git reset --mixed(HEAD|commit号)：移动HEAD指针，并用HEAD指向的快照更新index索引区的内容；--mixed是默认选项，等同于git reset
+git reset --hard(HEAD|commit号)：移动HEAD指针，并用HEAD指向的快照更新index索引区跟工作区
+
+git reset（不管哪种形式） 到之前的某个版本，用git log查看的话，该版本之后的提交都看不到了（可以理解为删掉了），但是可以用git reflog查看所有的操作，里面会有每一次操作后HEAD指向的commit号。通过git reset --soft 可以合并以前的多个提交信息。
+
+-----git reset commitnumber path：HEAD指针并不会移动
+example:git reset 889abf2 file.txt 用889abf2提交中file.txt中的内容来跟新index索引中file.txt的内容
+注意：git reset 889abf2 file.txt 不能添加 --soft|--hard，因为HEAD只是一个指针，无法让它同时指向两个提交中各自的一部分，如果需要回复工作区的某个文件到某个提交版本，需要用checkout命令
+
+-----git checkout commitnumber:移动HEAD指针自身，当前分支的指针并不移动
+git checkout master 其实等同于git checkout + master的最后一个提交号。
+如果git checkout commit号 ，commit号不是某个分支的最后一个提交的话 ，会提示You are in 'detached HEAD' state，如果用git branch查看的话，会发现当前所在分支为* (HEAD detached at 69b2aae)，如果再切换分支，此分支会直接被丢弃掉。
+    --此时，通过git checkout -b new-branch-name，可以在当前HEAD指针位置创建一个新的分支。
+也可以通过git branch new-branch-name 69b2aae在某个提交上面创建分支
+
+-----git checkout commitnumber path:不会移动HEAD指针，但是会用该次提交中的文件来更新index，并覆盖工作区中该文件的内容
+
+
