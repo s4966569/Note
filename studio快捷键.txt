@@ -3,3 +3,5 @@
 3.查看类的继承关系：ctrl+h
 4.计算断点处变量或表达式的值:ctrl+alt+8
 5.打开计算表达式值（Evaluate Express）窗口 alt+f8
+
+jdk.table.xml位置：/home/sp/.AndroidStudio2.2/config/options/jdk.table.xml
