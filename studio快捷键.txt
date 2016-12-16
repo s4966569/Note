@@ -5,3 +5,11 @@
 5.打开计算表达式值（Evaluate Express）窗口 alt+f8
 
 jdk.table.xml位置：/home/sp/.AndroidStudio2.2/config/options/jdk.table.xml
+docment:<root type="simple" url="file://$USER_HOME$/Android/Sdk/docs/reference" />
+
+//添加adb环境变量
+$ vim ~/.bashrc
+
+#AndroidDev PATH
+
+export PATH=${PATH}:~/android-sdk-linux/platform-tools
