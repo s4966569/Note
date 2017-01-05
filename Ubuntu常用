@@ -18,6 +18,8 @@ shadowsocks run in background:
 ssserver -c /etc/shadowsocks.json -d start
 ssserver -c /etc/shadowsocks.json -d stop
 
+7.禁用touchpad的水平滚动  synclient HorizTwoFingerScroll=0  （=号两边不能有空格）
+
 安装chrome:直接下载.deb文件安装。
 sudo dpkg -i google-chrome.deb
 error:
