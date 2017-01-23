@@ -20,6 +20,9 @@ ssserver -c /etc/shadowsocks.json -d stop
 
 7.禁用touchpad的水平滚动  synclient HorizTwoFingerScroll=0  （=号两边不能有空格）
 
+8.屏蔽插入usb时自动打开弹窗  
+gsettings set org.gnome.desktop.media-handling automount-open false
+
 安装chrome:直接下载.deb文件安装。
 sudo dpkg -i google-chrome.deb
 error:

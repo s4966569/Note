@@ -1,0 +1,8 @@
+windows+Ubuntu双系统，重装Windows后grub引导消失的问题：
+1.sudo fdisk -l 找到linux的安装分区.假设为sda6
+2.sudo mount /dev/sda6 /mnt
+  sudo mount /dev/sda5 /mnt/boot （sda5为/boot分区，如果没 /boot 单独分区这步跳过）
+3.sudo grub-install --root-directory=/mnt /dev/sda
+4.重启进入Ubuntu
+5.如果重启后引导菜单里面看不见重装的系统（比如windows10换成了windows7，但是这时候显示的还是windows10），
+需要执行：sudo update-grub2
