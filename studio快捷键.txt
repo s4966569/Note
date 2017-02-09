@@ -13,3 +13,7 @@ $ vim ~/.bashrc
 #AndroidDev PATH
 
 export PATH=${PATH}:~/android-sdk-linux/platform-tools
+
+7.adb无线连接：
+adb tcpip 5555
+adb connect 192.168.7.35:5555
