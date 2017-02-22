@@ -1,4 +1,5 @@
 windows+Ubuntu双系统，重装Windows后grub引导消失的问题：
+用装有Ubuntu系统的U盘启动（试用模式）
 1.sudo fdisk -l 找到linux的安装分区.假设为sda6
 2.sudo mount /dev/sda6 /mnt
   sudo mount /dev/sda5 /mnt/boot （sda5为/boot分区，如果没 /boot 单独分区这步跳过）
