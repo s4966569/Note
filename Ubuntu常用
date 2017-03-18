@@ -8,10 +8,6 @@ gsettings set com.canonical.Unity.Launcher launcher-position Bottom
 sudo gedit /etc/default/grub
 sudo update-grub
 
-5.update gfwlist:
-settings->Network->proxy
-sudo pip install genpac
-genpac -p "SOCKS5 127.0.0.1:1080" --gfwlist-proxy="SOCKS5 127.0.0.1:1080" --output="~/shadowsocks/autoproxy.pac" --gfwlist-url="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt"
 
 shadowsocks run in background:
 #或者在后台运行
@@ -22,6 +18,9 @@ ssserver -c /etc/shadowsocks.json -d stop
 
 8.屏蔽插入usb时自动打开弹窗  
 gsettings set org.gnome.desktop.media-handling automount-open false
+
+9.alt+D hide windows 
+Appearance-behavior-select add show desktop icon to the launcher
 
 安装chrome:直接下载.deb文件安装。
 sudo dpkg -i google-chrome.deb
@@ -37,3 +36,8 @@ $ sudo add-apt-repository ppa:webupd8team/java
 $ sudo apt-get update
 $ sudo apt-get install oracle-java8-installer
 $ sudo apt-get install oracle-java8-set-default
+
+ubuntu shengcheng autoproxy.pac
+sudo apt-get install python-pip
+sudo pip install genpac
+genpac --proxy="SOCKS5 127.0.0.1:1080" -o autoproxy.pac --gfwlist-url="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt"   generate autoproxy.pac in current folder
