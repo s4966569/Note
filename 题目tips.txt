@@ -1,1 +1,10 @@
-1.主观题就是问答类的题，根据题目的模板判断，就是template是“answer”的题;主观题是一种单题型。
+GridView:
+stretchMode:只有在指定了columnWidth的时候才会有作用，如果指定了stretchMode而没有给columnWidth的值，则item不显示，就是宽为0；
+           spacingWidth: 剩余的空间用来填空间隙（顶行开始显示item，最边上没有间隙）
+           spacingWidthUniform：剩余的空间用来填空间隙（所有的item居中显示，就是最边上也会有间隙）
+	   columnWith:剩余的间隙用item的宽度去填充，就是item的宽度自动缩放
+	   none:colunm不缩放，顶行开始显示
+horizontalSpacing并不是第一优先级：就是如果设置的item宽度过大，会挤一块，并不会保证一个最小的间隙。
+
+
+如果不指定stretchMode，默认情况下，item顶行显示，item的宽度会根据屏幕除掉horizontalSpacing之后的剩余宽度自动缩放，此时会保证horizontalSpacing所设置的值。
