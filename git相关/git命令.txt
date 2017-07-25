@@ -27,3 +27,6 @@ Git命令：
   比较最后一次提交跟上次提交的不同 ：git diff HEAD^ HEAD (可换成7位短commit号，比较两次commit之间的差异)
 5.合并两次提交信息：git commit --amend
 
+6.查看某个commit的改动：
+git show commit 或 git diff commit ^!；
+
