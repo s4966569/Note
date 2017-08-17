@@ -30,3 +30,7 @@ Git命令：
 6.查看某个commit的改动：
 git show commit 或 git diff commit ^!；
 
+7.拉取服务器并强制覆盖本地：
+git fetch --all
+git reset --hard origin/master
+
