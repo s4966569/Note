@@ -41,3 +41,11 @@ ubuntu shengcheng autoproxy.pac
 sudo apt-get install python-pip
 sudo pip install genpac
 genpac --proxy="SOCKS5 127.0.0.1:1080" -o autoproxy.pac --gfwlist-url="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt"   generate autoproxy.pac in current folder
+
+去除终端的大小写区分
+Open a terminal and type the below command:
+
+echo set completion-ignore-case on | sudo tee -a /etc/inputrc
+Enter password. Restart terminal.
+
+If in some case you want to remove case insensitive, just edit /etc/inputrc file by removing the set completion-ignore-case line.

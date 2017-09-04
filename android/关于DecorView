@@ -1,0 +1,3 @@
+1.DecorView是PhoneWindow的根view，也是整个activity视图的根view
+2.DecorView继承自FrameLayout，内部包含一个LineraLayout，
+LineraLayout包含了TitleBar（状态栏）跟contentView（即id为android.R.id.content的FrameLayout）。
