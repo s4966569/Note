@@ -1,0 +1,8 @@
+1.Auto Start on System Boot
+
+If you want shadowsocks server to automatically start on system boot, then edit /etc/rc.local file
+
+sudo vi /etc/rc.local
+Add the following line to the file above exit 0 line
+
+/usr/bin/python /usr/local/bin/ssserver -c /etc/shadowsocks.json -d start
