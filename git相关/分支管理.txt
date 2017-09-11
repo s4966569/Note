@@ -7,8 +7,7 @@ git push origin localbranch:remotebranch
 git fetch origin
 git checkout -b localbranch origin/remotebranch
 也可以使用快捷方式 --track
-git checkout --track origin/remotebranch (会在本地创建名为remotebranch的本地分支并跟踪origin/remotebranch),如果不想本地与远程的分支名字相同，可以使用：
-git checkout -b newbranch origin/remotebranch
+git checkout --track origin/remotebranch (会在本地创建名为remotebranch的本地分支并跟踪origin/remotebranch)
 
 3.跟踪远程分支：
 在任意时间使用 -u 或 --set-upstream-to 选项运行 git branch 来显式地设置。

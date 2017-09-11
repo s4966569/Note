@@ -27,8 +27,17 @@ Git命令：
   比较最后一次提交跟上次提交的不同 ：git diff HEAD^ HEAD (可换成7位短commit号，比较两次commit之间的差异)
 5.合并两次提交信息：git commit --amend
 
+<<<<<<< HEAD
 
 6.更新子module
 git pull --recurse-submodules
 git submodule update
+=======
+6.查看某个commit的改动：
+git show commit 或 git diff commit ^!；
+
+7.拉取服务器并强制覆盖本地：
+git fetch --all
+git reset --hard origin/master
+>>>>>>> c3660bbd5805b247ff90f0169d92be1ae5693e49
 

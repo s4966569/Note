@@ -49,3 +49,15 @@ echo set completion-ignore-case on | sudo tee -a /etc/inputrc
 Enter password. Restart terminal.
 
 If in some case you want to remove case insensitive, just edit /etc/inputrc file by removing the set completion-ignore-case line.
+
+
+alias:
+首先在.bashrc文件中 有个-f ~/.bash_aliases 什么的，可以改成自己的文件名字
+比如在~文件夹下面新建文件 .bash_aliases 然后进入添加如下行:
+alias yxex='cd ~/Projects/yxexueelian_android'
+alias sstop='sudo sslocal -d stop'
+alias sstart='sudo sslocal -c ~/Documents/ss/sg.json -d start'
+保存退出，然后source .bashrc更新一下就好了
+
+
+ssh远曾登录:ssh username@remote_host 然后输入密码
