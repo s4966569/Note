@@ -1,0 +1,11 @@
+ImportError: No module named setuptools
+16.04:  pip install -U setuptools
+17.04:  sudo apt-get install -y python-setuptools
+
+
+error: invalid command 'bdist_wheel':
+17.04:pip install setuptools --upgrade
+
+
+sudo pip install https://github.com/shadowsocks/shadowsocks/archive/master.zip
+更新到最新版本，会自动卸载老的版本
