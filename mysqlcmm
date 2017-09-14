@@ -1,0 +1,14 @@
+1.sudo service mysql status
+  sudo service mysql stop
+  sudo service mysql start
+2.login:
+  mysql -h host -u user -p 然后输入密码，也可以直接带密码连接
+  mysql -h host -u user -ppwd(-p跟密码之间不能有空格)
+  连接本地数据库可以不用加 -h host
+sql语句结束后面一定要加分号，不加分号会被当成这行语句没有结束
+
+3.show databases; 显示存在的所有数据库
+  create dbname; 创建一个数据库
+  use dbname; 切换到某个数据库 或者在开始连接的时候直接连接某个数据库
+  mysql -h host -u user -p dbname
+  show tables; 显示当前数据库中的所有表
