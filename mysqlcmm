@@ -8,7 +8,47 @@
 sql语句结束后面一定要加分号，不加分号会被当成这行语句没有结束
 
 3.show databases; 显示存在的所有数据库
-  create dbname; 创建一个数据库
+  create database dbname; 创建一个数据库
+  drop database dbname;删除一个数据库
   use dbname; 切换到某个数据库 或者在开始连接的时候直接连接某个数据库
   mysql -h host -u user -p dbname
   show tables; 显示当前数据库中的所有表
+  delete from tablename;删除表中的所有数据
+  drop table tablename;删除表
+
+
+4.关于插入中文出错的问题：
+这个是由于mysql的数据库字符集编码的原因，安装的时候默认不是utf8编码，所以插入utf8编码的字符会报错。
+创建数据库的时候 如果没指定CHARACTER SET跟COLLATE的编码会使用character_set_database的编码，character_set_database的编码是启动的时候如果没指定编码，会根据character_set_server的编码设置默认编码。
+同理，创建表的时候如果没有指定字符集编码，会参照数据库；穿件table，column类似；
+修改默认编码：
+sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
+在[mysqld]下面添加
+character-set-server=utf8
+collation-server=utf8_general_ci
+这样数据库启动之后默认就是utf8编码；
+然后重启数据库。
+
+
+5.关于插入emoj表情报错的问题：
+sudo vim /etc/mysql/my.cnf
+添加
+[client]
+default-character-set = utf8mb4
+
+[mysql]
+default-character-set = utf8mb4
+
+[mysqld]
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+重启，
+注意：python连接的时候一定要记得设置连接的编码为utf8md4，否则还是一样报错
+cnx.set_charset_collation('utf8mb4')
+
+查看编码：show variables like "%character%"; 
+查看数据库编码：SELECT @@character_set_database, @@collation_database;
+查看详细编码：SHOW VARIABLES WHERE Variable_name LIKE 'character\_set\_%' OR Variable_name LIKE 'collation%';
+
+查看支持的编码表：SHOW CHARACTER SET;
+create table tiebareply (author varchar(20), reply varchar(3000), floor varchar(40), time DATE);
