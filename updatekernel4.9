@@ -1,0 +1,22 @@
+1.check kernel version
+uname -r
+2.confirm the bbr modules is included
+ls -a /lib/modules/$(uname -r)/kernel/net/ipv4 | grep bbr
+3.check current using
+cat /proc/sys/net/ipv4/tcp_congestion_control
+
+4.download kernel
+wget kernel.ubuntu.com/~kernel-ppa/mainline/v4.9/linux-headers-4.9.0-040900_4.9.0-040900.201612111631_all.deb
+
+wget kernel.ubuntu.com/~kernel-ppa/mainline/v4.9/linux-headers-4.9.0-040900-generic_4.9.0-040900.201612111631_amd64.deb
+
+wget kernel.ubuntu.com/~kernel-ppa/mainline/v4.9/linux-image-4.9.0-040900-generic_4.9.0-040900.201612111631_amd64.deb
+
+5.install kernel
+sudo dpkg -i linux-headers-4.9.0*.deb linux-image-4.9.0*.deb
+
+6.reboot
+sudo reboot
+
+7.change bbr
+echo "bbr" > /proc/sys/net/ipv4/tcp_congestion_control
