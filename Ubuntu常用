@@ -1,5 +1,11 @@
 modify root passwd:
 sudo passwd
+
+local setting unsupport:
+vim /etc/default/locale
+添加缺失的的设置（中间不要空格)
+
+
 1.点击图标最小化
 gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ launcher-minimize-window true
 2.设置启动器在底部
