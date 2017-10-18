@@ -7,5 +7,6 @@ error: invalid command 'bdist_wheel':
 17.04:pip install setuptools --upgrade
 
 
+sudo apt-get install python-pip
 sudo pip install https://github.com/shadowsocks/shadowsocks/archive/master.zip
 更新到最新版本，会自动卸载老的版本
