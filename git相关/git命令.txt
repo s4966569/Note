@@ -41,3 +41,8 @@ git fetch --all
 git reset --hard origin/master
 >>>>>>> c3660bbd5805b247ff90f0169d92be1ae5693e49
 
+8.更新zimoudel
+git pull --recurse-submodules
+
+git submodule update
+
