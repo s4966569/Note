@@ -1,3 +1,11 @@
+modify root passwd:
+sudo passwd
+
+local setting unsupport:
+vim /etc/default/locale
+添加缺失的的设置（中间不要空格)
+
+
 1.点击图标最小化
 gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ launcher-minimize-window true
 2.设置启动器在底部
@@ -60,4 +68,8 @@ alias sstart='sudo sslocal -c ~/Documents/ss/sg.json -d start'
 保存退出，然后source .bashrc更新一下就好了
 
 
-ssh远曾登录:ssh username@remote_host 然后输入密码
+ssh远曾登录:ssh -p port username@remote_host 然后输入密码(不写端口默认是22)
+
+安装图片查看器：sudo apt install viewnior
+
+
