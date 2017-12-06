@@ -1,0 +1,4 @@
+对于FragmentStatePagerAdapter：
+情景：一个ViewPager里面放的是Fragment，Fragment里面放的又是ViewPager，相当于两层ViewPager嵌套
+操作，第一层ViewPager去通知当前的Fragment改变被替换了，然后当前最外层的Fragment被替换，第二层的ViewPager跟配套的Adapter重新生成，但是第二层的ViewPager初始化的时候，并没有调用getitem方法，里面的Fragment还是第一层被替换掉的那个Fragment的子Fragment。
+原因：两层ViewPager用的id一样，生成Fragment的时候，会根据这个id保存getitem得到的Fragment，然后下次进来直接先寻找，如果存在，就不调用getitem。（此bug简直反人类）
