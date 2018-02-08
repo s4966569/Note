@@ -1,0 +1,1 @@
+apk的versioncode不大于当前已安装版本的versioncode，是可以覆盖安装的，小于不行。

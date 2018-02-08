@@ -1,0 +1,10 @@
+使用AgentWeb，在4.3版本上面报错：Unable to get provider com.just.agentweb.AgentWebFileProvider don't find class......
+解决方法：因为项目中 multiDexEnabled true
+所以需要重写Application的方法  
+@Override
+    protected void attachBaseContext(Context context) {
+        super.attachBaseContext(context);
+        MultiDex.install(this);
+    }
+
+参考https://stackoverflow.com/questions/37312103/unable-to-get-provider-com-google-firebase-provider-firebaseinitprovider

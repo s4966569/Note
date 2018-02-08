@@ -1,0 +1,2 @@
+1.下载更新进度条时，更新进度不能平凡的去更新Remoteviews，因为频率太高，消息会阻塞，会刷新的越来越慢。
+2.可以在子线程更新RemoteViews，因为RemoteViews更新是一个IPC过程，是由系统管理的，RemoteViews的更新并不是在主线程。

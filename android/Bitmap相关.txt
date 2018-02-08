@@ -1,2 +1,3 @@
 1.Bitmap保存为文件之后，再读取出来的Bitmap背景为黑色的问题:
  bitmap.compress(Bitmap.CompressFormat.PNG,100,fos); 压缩格式选择png就好了。
+ 合成Bitmap然后保存为.jpg或者.png文件之后，打开图片黑色的问题，可以创建bitmap之后 bitmap.eraseColor(Color.WHITE);指定填充的背景色
