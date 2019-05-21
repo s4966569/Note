@@ -15,6 +15,8 @@ docment:<root type="simple" url="file://$USER_HOME$/Android/Sdk/docs/reference" 
           </root>
         </javadocPath>
 
+Mac: vim /Users/xxx/Library/Preferences/AndroidStudio2.x/options/jdk.table.xml
+
 gradle下载出问题：
 手动下载，然后把下载的zip文件拷贝到 
 ~/.gradle/wrapper/dists/gradle-3.3-all/55gk2rcmfc6p2dg9u9ohc3hw9
@@ -29,3 +31,7 @@ export PATH=${PATH}:~/android-sdk-linux/platform-tools
 7.adb无线连接：
 adb tcpip 5555
 adb connect 192.168.7.35:5555
+8.debug attach bu shang
+xian adb kill-server
+ba diao shouji zai cha shang,ran hou run
+

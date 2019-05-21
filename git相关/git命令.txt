@@ -1,4 +1,4 @@
-﻿一般流程：更新主仓库：git fetch upstream
+一般流程：更新主仓库：git fetch upstream
 合并远程仓库代码：git rebase upstream/master
 然后提交自己本地的代码到远程仓库git push origin master
 到网页上面创建 pull request
@@ -6,7 +6,7 @@
 控制git log 的输出格式：
 vim ~/.gitconfig 在文件中加入：
 [format]
-        	pretty=format:%Cred%h  %<(12,trunc)%Cgreen%an%x08%x08  %<(13,trunc)%Cred%cr%x08%x08  %Cgreen%s
+        pretty=format:%Cred%h  %<(12,trunc)%Cgreen%an%x08%x08  %<(13,trunc)%Cred%cr%x08%x08  %Cgreen%s
 
 %<(N, trunc) 下一个单元的输出宽度限制为N列, 左对齐
 
@@ -46,3 +46,8 @@ git pull --recurse-submodules
 
 git submodule update
 
+9.push icode
+git push origin HEAD:refs/for/remotebranch
+
+10.commit-checker
+icode_commit_checker_install_android 你的icode用户名
